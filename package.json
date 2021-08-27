@@ -1,14 +1,14 @@
 {
-  "name": "nuffsaid.com-react-coding-challange",
+  "name": "simplideco.com-fullstack-coding-challange",
   "version": "0.0.1",
-  "description": "nuffsaid.com react coding challange",
+  "description": "simplideco.com react coding challange",
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom"
   },
-  "author": "nuffsaid.com",
+  "author": "simplideco.com",
   "license": "MIT",
   "dependencies": {
     "@material-ui/core": "^3.8.2",
@@ -36,6 +36,5 @@
       "**/src/**/*.js",
       "!**/__tests__/**"
     ]
-  },
-  "repository": "git@gitlab.com:arnab8/nuffsaid-frontend-coding-challenge.git"
+  }
 }
