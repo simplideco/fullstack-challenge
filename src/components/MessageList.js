@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import Api from '../MessageGenerator'
 import { connect } from 'react-redux';
+import { setError, clearError } from '../redux/actions/userInterface';
 import { addMessage } from '../redux/actions/message';
 import { CardMessage } from './CardMessage';
 
@@ -24,6 +25,12 @@ class MessageList extends Component {
 
   messageCallback(message) {
     this.props.addMessage(message);
+
+    // update snackbar error
+    if (message.priority === 1) { 
+        this.props.setError({info: message.message, isErr: true });
+        setTimeout(() => { this.props.clearError() }, 2000)
+     };
   };
 
   renderButton() {
@@ -51,6 +58,7 @@ class MessageList extends Component {
   render() {
     return (
       <>
+      { this.props.ui.snackbar.isErr && <div className="alert">{this.props.ui.snackbar.info}</div> }
         <h1>Coding Challenge</h1>
         <hr />
         {this.renderButton()}
@@ -89,6 +97,6 @@ class MessageList extends Component {
   }
 };
 
-const mapStateToProps = state => ({ messages: state.message, stopGeneration: state.stopGeneration });
-const mapDispatchToProps = { addMessage };
+const mapStateToProps = state => ({ messages: state.message, stopGeneration: state.stopGeneration, ui: state.ui });
+const mapDispatchToProps = { addMessage, setError, clearError };
 export default connect(mapStateToProps, mapDispatchToProps)(MessageList);

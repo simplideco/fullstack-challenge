@@ -14,6 +14,5 @@ export const messageReducer = (state = initialState, action) => {
       };
     default:
       return state;
-      break;
   };
 };
