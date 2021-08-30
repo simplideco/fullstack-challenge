@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
-import Api from '../MessageGenerator'
+import Api from '../style/MessageGenerator'
 import { connect } from 'react-redux';
 import { setError, clearError } from '../redux/actions/userInterface';
-import { addMessage, clearMessage } from '../redux/actions/message';
+import { addMessage } from '../redux/actions/message';
 import CardMessage from './CardMessage';
 
 class MessageList extends Component {
