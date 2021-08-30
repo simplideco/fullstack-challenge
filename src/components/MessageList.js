@@ -27,10 +27,10 @@ class MessageList extends Component {
     this.props.addMessage(message);
 
     // update snackbar error
-    if (message.priority === 1) { 
-        this.props.setError({info: message.message, isErr: true });
-        setTimeout(() => { this.props.clearError() }, 2000)
-     };
+    if (message.priority === 1) {
+      this.props.setError({ info: message.message, isErr: true });
+      setTimeout(() => { this.props.clearError() }, 3000)
+    };
   };
 
   renderButton() {
@@ -58,7 +58,11 @@ class MessageList extends Component {
   render() {
     return (
       <>
-      { this.props.ui.snackbar.isErr && <div className="alert">{this.props.ui.snackbar.info}</div> }
+        {this.props.ui.snackbar.isErr
+          && <div className="alert">
+            {this.props.ui.snackbar.info}
+            <button onClick={ () => this.props.clearError() }>close</button>
+          </div>}
         <h1>Coding Challenge</h1>
         <hr />
         {this.renderButton()}
@@ -73,21 +77,21 @@ class MessageList extends Component {
               <h2>Error Type 1</h2>
               <small>Count 2</small>
               {
-                this.props.messages.messages.map( (msg) =>  msg.priority === 1 && <CardMessage key={msg.message} data={msg} /> )
+                this.props.messages.messages.map((msg) => msg.priority === 1 && <CardMessage key={msg.message} data={msg} />)
               }
             </Grid>
             <Grid container item xs={4} justify="center" direction="column">
               <h2>Warning Type 2</h2>
               <small>Count 2</small>
               {
-                this.props.messages.messages.map( (msg) =>  msg.priority === 2 && <CardMessage key={msg.message} data={msg} /> )
+                this.props.messages.messages.map((msg) => msg.priority === 2 && <CardMessage key={msg.message} data={msg} />)
               }
             </Grid>
             <Grid container item xs={4} justify="center" direction="column">
               <h2>Info Type 3</h2>
               <small>Count 2</small>
               {
-                this.props.messages.messages.map( (msg) =>  msg.priority === 3 && <CardMessage key={msg.message} data={msg} /> )
+                this.props.messages.messages.map((msg) => msg.priority === 3 && <CardMessage key={msg.message} data={msg} />)
               }
             </Grid>
           </Grid>
