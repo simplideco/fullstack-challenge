@@ -4,3 +4,8 @@ export const addMessage = payload => ({
   type: types.addMessage,
   payload: payload,
 });
+
+export const clearMessage = payload => ({
+  type: types.clearMessage,
+  payload: payload,
+});

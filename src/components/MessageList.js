@@ -4,8 +4,8 @@ import Grid from '@material-ui/core/Grid'
 import Api from '../MessageGenerator'
 import { connect } from 'react-redux';
 import { setError, clearError } from '../redux/actions/userInterface';
-import { addMessage } from '../redux/actions/message';
-import { CardMessage } from './CardMessage';
+import { addMessage, clearMessage } from '../redux/actions/message';
+import CardMessage from './CardMessage';
 
 class MessageList extends Component {
   constructor(...args) {
@@ -17,7 +17,6 @@ class MessageList extends Component {
       this.messageCallback(message)
     },
   });
-
 
   componentDidMount() {
     this.api.start()
