@@ -9,3 +9,7 @@ export const clearMessage = payload => ({
   type: types.clearMessage,
   payload: payload,
 });
+
+export const deleteAllMessage = () => ({
+  type: types.deleteAllMessage
+});

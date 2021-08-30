@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid'
 import Api from '../style/MessageGenerator'
 import { connect } from 'react-redux';
 import { setError, clearError } from '../redux/actions/userInterface';
-import { addMessage } from '../redux/actions/message';
+import { addMessage, deleteAllMessage } from '../redux/actions/message';
 import CardMessage from './CardMessage';
 
 class MessageList extends Component {
@@ -49,7 +49,7 @@ class MessageList extends Component {
         >
           {isApiStarted ? 'Stop Messages' : 'Start Messages'}
         </Button>
-        <Button variant="contained">clear</Button>
+        <Button variant="contained" onClick={this.props.deleteAllMessage}>clear</Button>
       </div>
     )
   };
@@ -101,5 +101,5 @@ class MessageList extends Component {
 };
 
 const mapStateToProps = state => ({ messages: state.message, stopGeneration: state.stopGeneration, ui: state.ui });
-const mapDispatchToProps = { addMessage, setError, clearError };
+const mapDispatchToProps = { addMessage, setError, clearError, deleteAllMessage };
 export default connect(mapStateToProps, mapDispatchToProps)(MessageList);
