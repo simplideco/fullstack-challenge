@@ -11,7 +11,7 @@
   "author": "simplideco.com",
   "license": "MIT",
   "dependencies": {
-    "@material-ui/core": "^3.8.2",
+    "@material-ui/core": "^3.9.4",
     "faker": "^5.5.3",
     "lodash": "^4.17.2",
     "react": "^17.0.2",

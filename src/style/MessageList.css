@@ -1,0 +1,31 @@
+#container {
+  padding: 0 200px;
+  text-align: center;
+}
+
+.card {
+  position: relative;
+  border-radius: 3px;
+  font-weight: 600; 
+  margin: 5px;
+  max-width: 310px;
+  min-width: 300px;
+}
+
+.btn-delete {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+#buttons {
+  display: flex;
+  justify-content: center;
+}
+
+#buttons button {
+  margin: 0 10px;
+}

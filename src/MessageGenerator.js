@@ -1,5 +1,6 @@
 import random from 'lodash/random';
 import faker from 'faker';
+import { connect } from 'react-redux';
 
 export default class MessageGenerator {
   constructor(options) {
