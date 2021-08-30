@@ -74,21 +74,21 @@ class MessageList extends Component {
           >
             <Grid container item xs={4} justify="center" direction="column">
               <h2>Error Type 1</h2>
-              <small>Count 2</small>
+              <small>Count {this.props.messages.messages.filter((message) => message.priority === 1 ).length }</small>
               {
                 this.props.messages.messages.map((msg) => msg.priority === 1 && <CardMessage key={msg.message} data={msg} />)
               }
             </Grid>
             <Grid container item xs={4} justify="center" direction="column">
               <h2>Warning Type 2</h2>
-              <small>Count 2</small>
+              <small>Count {this.props.messages.messages.filter((message) => message.priority === 2 ).length }</small>
               {
                 this.props.messages.messages.map((msg) => msg.priority === 2 && <CardMessage key={msg.message} data={msg} />)
               }
             </Grid>
             <Grid container item xs={4} justify="center" direction="column">
               <h2>Info Type 3</h2>
-              <small>Count 2</small>
+              <small>Count {this.props.messages.messages.filter((message) => message.priority === 3 ).length }</small>
               {
                 this.props.messages.messages.map((msg) => msg.priority === 3 && <CardMessage key={msg.message} data={msg} />)
               }
