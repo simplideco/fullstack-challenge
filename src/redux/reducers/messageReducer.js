@@ -12,5 +12,17 @@ const initialState = {
 };
 
 export const messageReducer = (state = initialState, action) => {
-  return state;
+
+  switch (action.type) {
+    case types.addMessage:
+      return {
+        ...state,
+        messages: [...state.messages, action.payload]
+      };
+      break;
+  
+    default:
+      return state;
+      break;
+  };
 };

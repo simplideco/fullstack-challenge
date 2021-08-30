@@ -1,39 +1,28 @@
 import React, { Component } from 'react'
 import Button from '@material-ui/core/Button'
 import Api from '../Api'
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { addMessage } from '../redux/actions/message';
 
 class MessageList extends Component {
   constructor(...args) {
     super(...args)
-    this.state = {
-      messages: [],
-    }
   }
 
   api = new Api({
     messageCallback: (message) => {
       this.messageCallback(message)
     },
-  })
+  });
 
   componentDidMount() {
     this.api.start()
-  }
+  };
 
   messageCallback(message) {
-    const { messages } = this.state
-    this.setState({
-      messages: [
-        ...messages.slice(),
-        message,
-      ],
-    }, () => {
-      // Included to support initial direction. Please remove upon completion
-      console.log(messages)
-      console.log(this.props.messages)
-    })
-  }
+    this.props.addMessage(message);
+    console.log(this.props.messages);
+  };
 
   renderButton() {
     const isApiStarted = this.api.isStarted()
@@ -52,7 +41,7 @@ class MessageList extends Component {
         {isApiStarted ? 'Stop Messages' : 'Start Messages'}
       </Button>
     )
-  }
+  };
 
   render() {
     return (
@@ -61,7 +50,8 @@ class MessageList extends Component {
       </div>
     )
   }
-}
+};
 
 const mapStateToProps = state => ({messages: state.message, stopGeneration: state.stopGeneration }); 
-export default connect(mapStateToProps, null)(MessageList);
+const mapDispatchToProps = { addMessage };
+export default connect(mapStateToProps, mapDispatchToProps)(MessageList);
