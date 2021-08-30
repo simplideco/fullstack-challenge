@@ -29,3 +29,10 @@
 #buttons button {
   margin: 0 10px;
 }
+
+.alert {
+  background-color: #F56236;
+  text-align: center;
+  font-size: 50px;
+  color: #ffff;
+}
