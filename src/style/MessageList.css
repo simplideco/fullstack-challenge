@@ -5,9 +5,8 @@
 
 .card {
   position: relative;
-  background-color: royalblue;
   border-radius: 3px;
-  font-weight: 600;
+  font-weight: 600; 
   margin: 5px;
   max-width: 310px;
   min-width: 300px;
