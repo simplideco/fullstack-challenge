@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import Button from '@material-ui/core/Button'
-import Api from '../Api'
+import Grid from '@material-ui/core/Grid'
+import Api from '../MessageGenerator'
 import { connect } from 'react-redux';
 import { addMessage } from '../redux/actions/message';
+import '../style/MessageList.css'
 
 class MessageList extends Component {
   constructor(...args) {
@@ -16,7 +18,7 @@ class MessageList extends Component {
   });
 
   componentDidMount() {
-    this.api.start()
+    //this.api.start()
   };
 
   messageCallback(message) {
@@ -27,31 +29,69 @@ class MessageList extends Component {
   renderButton() {
     const isApiStarted = this.api.isStarted()
     return (
-      <Button
-        variant="contained"
-        onClick={() => {
-          if (isApiStarted) {
-            this.api.stop()
-          } else {
-            this.api.start()
-          }
-          this.forceUpdate()
-        }}
-      >
-        {isApiStarted ? 'Stop Messages' : 'Start Messages'}
-      </Button>
+      <div id="buttons">
+        <Button
+          variant="contained"
+          onClick={() => {
+            if (isApiStarted) {
+              this.api.stop()
+            } else {
+              this.api.start()
+            }
+            this.forceUpdate()
+          }}
+        >
+          {isApiStarted ? 'Stop Messages' : 'Start Messages'}
+        </Button>
+        <Button variant="contained">clear</Button>
+      </div>
     )
   };
 
   render() {
     return (
-      <div>
+      <>
+        <h1>Coding Challenge</h1>
+        <hr />
         {this.renderButton()}
-      </div>
+        <div id="container">
+          <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="flex-start"
+          >
+            <Grid container item xs={4} justify="center" direction="column">
+              <h2>Error Type 1</h2>
+              <small>Count 2</small>
+              <div className="card">
+                <p>message content here.</p>
+                <button className="btn-delete">clear</button>
+              </div>
+            </Grid>
+            <Grid container item xs={4} justify="center" direction="column">
+              <h2>Warning Type 2</h2>
+              <small>Count 2</small>
+              <div className="card">
+                <p>message content here.</p>
+                <button className="btn-delete">clear</button>
+              </div>
+            </Grid>
+            <Grid container item xs={4} justify="center" direction="column">
+              <h2>Info Type 3</h2>
+              <small>Count 2</small>
+              <div className="card">
+                <p>message content here.</p>
+                <button className="btn-delete">clear</button>
+              </div>
+            </Grid>
+          </Grid>
+        </div>
+      </>
     )
   }
 };
 
-const mapStateToProps = state => ({messages: state.message, stopGeneration: state.stopGeneration }); 
+const mapStateToProps = state => ({ messages: state.message, stopGeneration: state.stopGeneration });
 const mapDispatchToProps = { addMessage };
 export default connect(mapStateToProps, mapDispatchToProps)(MessageList);
