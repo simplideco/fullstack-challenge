@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Button from '@material-ui/core/Button'
 import Api from '../Api'
+import { connect } from 'react-redux'
 
 class MessageList extends Component {
   constructor(...args) {
@@ -30,6 +31,7 @@ class MessageList extends Component {
     }, () => {
       // Included to support initial direction. Please remove upon completion
       console.log(messages)
+      console.log(this.props.messages)
     })
   }
 
@@ -61,4 +63,5 @@ class MessageList extends Component {
   }
 }
 
-export default MessageList
+const mapStateToProps = state => ({messages: state.message, stopGeneration: state.stopGeneration }); 
+export default connect(mapStateToProps, null)(MessageList);
