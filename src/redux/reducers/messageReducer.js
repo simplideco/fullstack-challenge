@@ -12,8 +12,13 @@ export const messageReducer = (state = initialState, action) => {
         ...state,
         messages: [action.payload, ...state.messages]
       };
+
+    case types.clearMessage:
+      return {
+        ...state,
+        messages: state.messages.filter( message => message.message !== action.payload.message)
+      };
     default:
       return state;
-      break;
   };
 };
