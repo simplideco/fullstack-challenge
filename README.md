@@ -1,3 +1,25 @@
+## How to use?
+
+- Server ENV: create a .env file with PORT constant
+- Client ENV: create a .env file with REACT_APP_HOST constant
+- Cloning fullstack challenge
+
+```ssh 
+  # Clone 
+  git clone <url>
+
+  # Install server dependencies
+  cd server 
+  npm install
+  npm start
+
+  # Install client dependencies
+  cd client 
+  npm install
+  npm start
+
+```
+
 ## React Coding Challenge
 
 This code challenge tests your skills in react.js, testing and modular design.
