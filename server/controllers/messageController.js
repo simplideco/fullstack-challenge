@@ -7,11 +7,11 @@ const generate = () => new Promise((resolve, reject) => {
   let data;
 
 
-  if (nextInMS > 700 && nextInMS < 735) {
+  if (nextInMS > 785 && nextInMS < 790) {
     return reject({ ok: false, status: 404, message: "Server could not find the requested website" });
-  } else if (nextInMS > 735 && nextInMS < 770) {
+  } else if (nextInMS > 790 && nextInMS < 795) {
     return reject({ ok: false, status: 500, message: "Generic error response" });
-  } else if (nextInMS > 770) {
+  } else if (nextInMS > 795) {
     return reject({ ok: false, status: 403, message: "Forbidden client error" });
   } else {
 
@@ -37,6 +37,7 @@ const getMessage = async (req, res = response) => {
     return res.status(message.status).json(message);
   } catch (error) {
     console.log(error);
+    return res.status(error.status).json(error);
   }
 
 };
