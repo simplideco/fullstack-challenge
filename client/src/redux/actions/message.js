@@ -13,3 +13,7 @@ export const clearMessage = payload => ({
 export const deleteAllMessage = () => ({
   type: types.deleteAllMessage
 });
+
+export const updateStropGeneration = () => ({
+  type: types.UpdateStopGeneration
+});
