@@ -2,6 +2,7 @@ import { types } from '../types/types';
 
 const initialState = {
   messages: [],
+  stopGeneration: false
 };
 
 export const messageReducer = (state = initialState, action) => {
@@ -24,6 +25,12 @@ export const messageReducer = (state = initialState, action) => {
         ...state,
         messages: [],
       };
+
+    case types.UpdateStopGeneration:
+    return {
+      ...state,
+      stopGeneration: !state.stopGeneration,
+    }
     default:
       return state;
   };
