@@ -17,7 +17,7 @@ function MessageListApp(props) {
       // update snackbar error
       if (message.priority === 1) {
         props.setError({ info: message.message, isErr: true });
-        setTimeout(() => { props.clearError() }, 3000)
+        setTimeout(() => { props.clearError() }, 5000)
       };
       
 

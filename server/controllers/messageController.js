@@ -3,16 +3,16 @@ const faker = require('faker');
 const random = require('random');
 
 const generate = () => new Promise((resolve, reject) => {
-  const nextInMS = random.int(500, 800);
+  const nextInMS = random.int(2000, 4000);
   let data;
 
 
-  if (nextInMS > 785 && nextInMS < 790) {
-    return reject({ ok: false, status: 404, message: "Server could not find the requested website" });
-  } else if (nextInMS > 790 && nextInMS < 795) {
-    return reject({ ok: false, status: 500, message: "Generic error response" });
-  } else if (nextInMS > 795) {
-    return reject({ ok: false, status: 403, message: "Forbidden client error" });
+  if (nextInMS > 3850 && nextInMS < 3900) {
+    return reject({ ok: false, status: 404, message: "404 Server could not find the requested website" });
+  } else if (nextInMS > 3900 && nextInMS < 3950) {
+    return reject({ ok: false, status: 500, message: "500 Generic error response" });
+  } else if (nextInMS > 3950) {
+    return reject({ ok: false, status: 403, message: "403 Forbidden client error" });
   } else {
 
     setTimeout(() => {
